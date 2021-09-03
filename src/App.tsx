@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import 'antd/dist/antd.css';
+import { StoryList } from './Component/StoryList';
 
-const App = () => {
+export const App = () => {
+
   return (
-    <div> Hello world)</div>
+    <StoryList />
   );
 }
-
-export default App;
