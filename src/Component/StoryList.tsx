@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getStoryIds } from '../API/API';
+import { Story } from './Story';
 
 
 export const StoryList = () => {
@@ -9,7 +10,5 @@ export const StoryList = () => {
     getStoryIds().then(data => setStoryIds(data));
   }, []);
 
-  return (
-    <div>{storyIds.map((id: number) => <div key={id}>{id}</div>)}</div>
-  );
-}
+  return storyIds.map((storyId: number) => <Story key={storyId} storyId={storyId} />);
+};
