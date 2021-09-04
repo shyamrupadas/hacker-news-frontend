@@ -4,11 +4,13 @@ import { Story } from './Story';
 
 
 export const StoryList = () => {
-  const [storyIds, setStoryIds] = useState<any>([]);
+  const [storyIds, setStoryIds] = useState<Array<number>>([]);
 
   useEffect(() => {
     getStoryIds().then(data => setStoryIds(data));
   }, []);
 
-  return storyIds.map((storyId: number) => <Story key={storyId} storyId={storyId} />);
+  return <>
+    {storyIds.map((storyId: number) => <Story key={storyId} storyId={storyId} />)}
+  </>
 };
