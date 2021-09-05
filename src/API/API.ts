@@ -15,3 +15,9 @@ export const getStoryIds = async () => {
     .get(newStoriesUrl)
     .then(({ data }) => data);
 };
+
+export const getComment = async (commentId: number) => {
+  return await axios
+    .get(`${storyUrl + commentId}.json`)
+    .then(({data}) => data);
+};
