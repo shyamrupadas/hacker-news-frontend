@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getStory } from '../API/API';
 import { StoryType } from '../types/types';
-import { StoryInfo } from './StoryInfo';
+import { NavLink } from 'react-router-dom';
 
 type StoryPropsType = {
   storyId: number
@@ -17,15 +17,8 @@ export const Story: React.FC<StoryPropsType> = ({ storyId, index }) => {
 
   return story && story.url ? (
     <>
-      <h4>{index}. {story.title}</h4>
-      <StoryInfo
-        key={story.id}
-        kids={story.kids}
-        url={story.url}
-      />
-      <p>Рейтинг: {story.score}</p>
-      <p>Автор: {story.by}</p>
-      <p>Дата: {story.time}</p>
+      <h4><NavLink to={`/story/${storyId}`}>{index + 1}. {story.title}</NavLink></h4>
+      <p>By: {story.by} | {story.kids?.length || 0} comment | Score: {story.score} | Data: {story.time}</p>
     </>
   ) : null;
 };

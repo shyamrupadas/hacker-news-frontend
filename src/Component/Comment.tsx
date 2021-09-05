@@ -16,9 +16,10 @@ export const Comment: React.FC<CommentProps> = ({kid}) => {
 
 
   return <>
-    <div>
-      By: {comment.by} Data: {comment.time}
-    </div>
-    <div>{comment.text}</div>
+    <p>{comment.text}</p>
+    <p>
+      By: {comment.by} | Data: {comment.time}
+    </p>
+    {comment.kids && comment.kids.map((kid: number) =><div key={comment.id}><a href='#'>Дочерний коммент {kid}</a></div>)}
   </>
 }
