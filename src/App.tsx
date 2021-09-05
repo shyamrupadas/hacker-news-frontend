@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import { StoryList } from './Component/StoryList';
+import { StoriesList } from './Component/StoriesList';
 
 export const App = () => {
 
   return (
-    <StoryList />
+    <StoriesList />
   );
 }
