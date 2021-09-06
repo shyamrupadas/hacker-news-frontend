@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Comment } from './Comment';
+import { RootComment } from './RootComment';
 import { RouteComponentProps } from 'react-router-dom';
 import { getStory } from '../API/API';
 import { StoryType } from '../types/types';
@@ -33,7 +33,7 @@ export const StoryInfo = ({match}: RouteComponentProps<MatchParams>) => {
       <p>
         Comments:
       </p>
-      {story.kids?.map((kid: number) => <Comment key={kid} kid={kid} />
+      {story.kids?.map((kid: number) => <RootComment key={kid} kid={kid} />
       )}
     </>
   )

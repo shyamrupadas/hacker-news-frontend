@@ -1,13 +1,13 @@
-import '../index.css'
 import React, { useEffect, useState } from 'react';
 import { getComment } from '../API/API';
 import { CommentType } from '../types/types';
+import { Comment } from './Comment';
 
 type CommentProps = {
   kid: number
 }
 
-export const Comment: React.FC<CommentProps> = ({kid}) => {
+export const RootComment: React.FC<CommentProps> = ({kid}) => {
 
   const [comment, setComment] = useState<CommentType>({});
   const [showComment, setShowComment] = useState<boolean>(false)
@@ -17,13 +17,13 @@ export const Comment: React.FC<CommentProps> = ({kid}) => {
   }, [kid]);
 
 
-  return <div className='Comment'>
-    <div className='pstyle'>
+  return <>
+    <p>
       {comment.by} | {comment.time}
       {comment.kids?.length && ` | ${comment.kids?.length} comments`}
-    </div>
+    </p>
     {comment.text && <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
 
     {showComment && comment.kids && comment.kids.map((kid: number) =><Comment key={comment.id} kid={kid}/>)}
-  </div>
+  </>
 }

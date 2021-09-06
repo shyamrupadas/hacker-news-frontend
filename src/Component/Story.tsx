@@ -18,7 +18,8 @@ export const Story: React.FC<StoryPropsType> = ({ storyId, index }) => {
   return story && story.url ? (
     <>
       <h4><NavLink to={`/story/${storyId}`}>{index + 1}. {story.title}</NavLink></h4>
-      <p>By: {story.by} | {story.kids?.length || 0} comment | Score: {story.score} | Data: {story.time}</p>
+      <p>By: {story.by} | Score: {story.score} | Data: {story.time}
+        {story.kids?.length && ` | ${story.kids?.length} comments`}</p>
     </>
   ) : null;
 };
