@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getStoryIds } from '../API/API';
+import { getStoryIds } from '../API/api';
 import { Story } from './Story';
 
 

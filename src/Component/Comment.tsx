@@ -1,6 +1,6 @@
 import '../index.css'
 import React, { useEffect, useState } from 'react';
-import { getComment } from '../API/API';
+import { getComment } from '../API/api';
 import { CommentType } from '../types/types';
 
 type CommentProps = {

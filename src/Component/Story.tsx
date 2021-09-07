@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getStory } from '../API/API';
+import { getStory } from '../API/api';
 import { StoryType } from '../types/types';
 import { NavLink } from 'react-router-dom';
 

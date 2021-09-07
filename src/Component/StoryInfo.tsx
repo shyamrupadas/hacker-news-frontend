@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RootComment } from './RootComment';
 import { RouteComponentProps } from 'react-router-dom';
-import { getStory } from '../API/API';
+import { getStory } from '../API/api';
 import { StoryType } from '../types/types';
 
 type MatchParams = {
