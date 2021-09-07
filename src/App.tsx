@@ -1,18 +1,13 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import { StoriesList } from './Component/StoriesList';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { StoryInfo } from './Component/StoryInfo';
+import AppRouter from './Component/AppRouter';
+import { Layout } from 'antd';
 
 export const App = () => {
-
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/' component={StoriesList} />
-        <Route path='/story/:id' component={StoryInfo} />
-      </Switch>
-    </BrowserRouter>
-  );
-}
+    <Layout>
+      <AppRouter />
+    </Layout>
+  )
+};

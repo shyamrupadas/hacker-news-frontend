@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { RootComment } from './RootComment';
-import { RouteComponentProps } from 'react-router-dom';
 import { getStory } from '../API/api';
 import { StoryType } from '../types/types';
 
-type MatchParams = {
-  id: string
-};
-
-
-export const StoryInfo = ({match}: RouteComponentProps<MatchParams>) => {
+export const StoryInfo = ({match}: any) => {
   const [story, setStory] = useState<StoryType>({});
   const storyId: number | null = +match.params.id;
 
   useEffect(() => {
     getStory(storyId).then(data => data && data.url && setStory(data));
   }, [storyId]);
-
 
   return (
     <>
