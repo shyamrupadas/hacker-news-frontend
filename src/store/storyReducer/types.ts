@@ -7,13 +7,24 @@ export type storyState = {
 };
 
 export enum StoryActionEnum {
-  SET_STORIES = 'SET_STORIES'
+  FETCHING_STORIES = 'FETCHING_STORIES',
+  FETCH_STORIES_SUCCESS = 'FETCH_STORIES_SUCCESS',
+  FETCH_STORIES_ERROR = 'FETCH_STORIES_ERROR'
 }
 
-type SetStoriesAction = {
-  type: StoryActionEnum.SET_STORIES
-    payload: StoryType[]
+type FetchingStoriesAction = {
+  type: StoryActionEnum.FETCHING_STORIES
+};
+
+type FetchStoriesSuccessAction = {
+  type: StoryActionEnum.FETCH_STORIES_SUCCESS
+  payload: StoryType[]
+};
+
+type FetchStoriesErrorAction = {
+  type: StoryActionEnum.FETCH_STORIES_ERROR
+  payload: string
 };
 
 export type StoryAction =
-  SetStoriesAction;
+  FetchingStoriesAction | FetchStoriesSuccessAction | FetchStoriesErrorAction;

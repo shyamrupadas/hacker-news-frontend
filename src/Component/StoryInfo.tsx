@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RootComment } from './RootComment';
-import { getStory } from '../API/api';
+import { getStory } from '../api/api';
 import { StoryType } from '../types/types';
 
 export const StoryInfo = ({match}: any) => {

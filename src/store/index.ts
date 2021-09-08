@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { index } from './storyReducer';
+import { storyReducer } from './storyReducer/storyReducer';
 
 const rootReducer = combineReducers({
-  storyReducer: index
+  storyReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
