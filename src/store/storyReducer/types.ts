@@ -6,10 +6,14 @@ export type storyState = {
   error: null | string
 };
 
-type testAction = {
-  type: 'TEST'
-    payload: any
+export enum StoryActionEnum {
+  SET_STORIES = 'SET_STORIES'
+}
+
+type SetStoriesAction = {
+  type: StoryActionEnum.SET_STORIES
+    payload: StoryType[]
 };
 
-export type storyAction =
-  testAction;
+export type StoryAction =
+  SetStoriesAction;

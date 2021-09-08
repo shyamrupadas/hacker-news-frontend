@@ -1,4 +1,4 @@
-import { storyAction, storyState } from './types';
+import { StoryAction, StoryActionEnum, storyState } from './types';
 
 const initialState: storyState = {
   stories: [],
@@ -6,8 +6,11 @@ const initialState: storyState = {
   error: null
 };
 
-export const index = (state = initialState, action: storyAction): storyState => {
+export const index = (state = initialState, action: StoryAction): storyState => {
   switch (action.type) {
+
+    case StoryActionEnum.SET_STORIES:
+      return {...state, stories: action.payload}
 
     default:
       return state;

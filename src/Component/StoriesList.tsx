@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { getStoryIds } from '../API/api';
 import { Story } from './Story';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 
 export const StoriesList = () => {
+  const {stories} = useTypedSelector(state => state.storyReducer);
   const [storyIds, setStoryIds] = useState<Array<number>>([]);
 
+  console.log(stories)
   useEffect(() => {
     getStoryIds().then(data => setStoryIds(data));
   }, []);
