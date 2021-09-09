@@ -7,7 +7,7 @@ type CommentProps = {
   kid: number
 }
 
-export const RootComment: React.FC<CommentProps> = ({kid}) => {
+export const RootComments: React.FC<CommentProps> = ({kid}) => {
 
   const [comment, setComment] = useState<CommentType>({});
   const [showComment, setShowComment] = useState<boolean>(false)

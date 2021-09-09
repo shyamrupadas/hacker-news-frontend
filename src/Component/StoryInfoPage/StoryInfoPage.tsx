@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import { RootComment } from './RootComment';
+import { RootComments } from './RootComments';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { fetchStory } from '../../store/action-creators/story';
+import { fetchStory } from '../../store/action-creators/storyAC';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'antd';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
   const { story, error, loading } = useTypedSelector(state => state.storyReducer);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,8 +31,7 @@ export const StoryInfoPage = ({ match }: any) => {
       <p>By: {story.by} | Score: {story.score} | Data: {story.time}
         {story.kids?.length && ` | ${story.kids?.length} comments`}
       </p>
-      {story.kids?.map((kid: number) => <RootComment key={kid} kid={kid} />
-      )}
+      {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}
     </>
   )
 }

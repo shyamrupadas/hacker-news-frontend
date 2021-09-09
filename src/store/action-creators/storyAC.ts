@@ -10,7 +10,7 @@ export const fetchStories = () => {
       const data = await getStoriesIds();
 
       const promises = data
-        .slice(0, 50)
+        .slice(0, 80)
         .map((storyId: number) => getStory(storyId));
 
       const result: StoryType[] = await Promise.all(promises);
