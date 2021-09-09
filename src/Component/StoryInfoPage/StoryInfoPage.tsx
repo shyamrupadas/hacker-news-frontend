@@ -23,7 +23,7 @@ export const StoryInfoPage = ({ match }: any) => {
   if (error) return <h1>{error}</h1>
 
   return (
-    <div className='content'>
+    <div className='container'>
       <NavLink to='/'>К списку новостей</NavLink>
       <h1>{story.title}</h1>
       <Button>Обновить</Button>

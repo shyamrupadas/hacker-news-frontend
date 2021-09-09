@@ -19,7 +19,7 @@ export const StoriesListPage = () => {
 
   if (error) return <h1>{error}</h1>
 
-  return <div className='content'>
+  return <div className='container'>
     <h1>Hacker News</h1>
     <Button onClick={() => dispatch(updateStories())}>Обновить</Button>
     {loading && <h1>Загрузка</h1>}
