@@ -6,6 +6,7 @@ import { fetchStory, updateStory } from '../../store/action-creators/storyAC';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'antd';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
+import { formatDistanceToNow } from 'date-fns';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
@@ -22,19 +23,21 @@ export const StoryInfoPage = ({ match }: any) => {
   if (loading) return <h1>Загрузка</h1>
   if (error) return <h1>{error}</h1>
 
-  return (
+  return story.time ? (
     <div className='container'>
       <NavLink to='/'>К списку новостей</NavLink>
       <h1>{story.title}</h1>
+      <p>
+        {/* eslint-disable-next-line react/jsx-no-target-blank */}
+        <a href={story.url} target={'_blank'}>
+          Читать в источнике
+        </a>
+      </p>
       <Button>Обновить</Button>
-      {/* eslint-disable-next-line react/jsx-no-target-blank */}
-      <a href={story.url} target={'_blank'}>
-        Читать в источнике
-      </a>
-      <p>By: {story.by} | Score: {story.score} | Data: {story.time}
+      <p>By: {story.by} | Score: {story.score} | {formatDistanceToNow(new Date(story.time * 1000))} ago
         {story.kids?.length && ` | ${story.kids?.length} comments`}
       </p>
       {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}
     </div>
-  )
+  ) : null;
 };

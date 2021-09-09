@@ -8,7 +8,6 @@ export const useRefreshPage = (callback: () => void) => {
   useEffect(() => {
     const refreshPage = setInterval(() => {
       dispatch(callback());
-      console.log('Обновлено');
     },60000);
     return () => clearInterval(refreshPage);
   }, []);

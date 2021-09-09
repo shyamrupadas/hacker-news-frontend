@@ -2,6 +2,7 @@ import '../../index.css'
 import React, { useEffect, useState } from 'react';
 import { getComment } from '../../api/api';
 import { CommentType } from '../../types/types';
+import { formatDistanceToNow } from 'date-fns';
 
 type CommentProps = {
   kid: number
@@ -17,13 +18,14 @@ export const Comment: React.FC<CommentProps> = ({kid}) => {
   }, [kid]);
 
 
-  return <div className='Comment'>
+  return comment.time ? <div className='Comment'>
     <div className='pstyle'>
-      {comment.by} | {comment.time}
+      {comment.by} | {formatDistanceToNow(new Date(comment.time * 1000))} ago
       {comment.kids?.length && ` | ${comment.kids?.length} comments`}
     </div>
     {comment.text && <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
 
     {showComment && comment.kids && comment.kids.map((kid: number) =><Comment key={comment.id} kid={kid}/>)}
   </div>
+    : null;
 }
