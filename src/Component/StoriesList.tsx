@@ -10,8 +10,6 @@ export const StoriesList = () => {
   const {stories, error, loading} = useTypedSelector(state => state.storyReducer);
   const dispatch = useDispatch();
 
-  console.log(stories)
-
   useEffect(() => {
     dispatch(fetchStories())
   }, []);
