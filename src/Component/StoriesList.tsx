@@ -12,7 +12,7 @@ export const StoriesList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchStories())
+    dispatch(fetchStories());
   }, []);
 
   if (loading) return <h1>Загрузка</h1>

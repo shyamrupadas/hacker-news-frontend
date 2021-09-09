@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { RootComment } from './RootComment';
-import { getStory } from '../api/api';
-import { StoryType } from '../types/types';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useDispatch } from 'react-redux';
+import { fetchStory } from '../store/action-creators/story';
 
 export const StoryInfo = ({match}: any) => {
-  const [story, setStory] = useState<StoryType>({});
   const storyId: number | null = +match.params.id;
+  const {story, error, loading} = useTypedSelector(state => state.storyReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getStory(storyId).then(data => data && data.url && setStory(data));
+    dispatch(fetchStory(storyId));
   }, [storyId]);
+
+  if (loading) return <h1>Загрузка</h1>
+  if (error) return <h1>{error}</h1>
 
   return (
     <>
