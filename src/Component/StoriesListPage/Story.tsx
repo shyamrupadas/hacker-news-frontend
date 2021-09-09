@@ -9,11 +9,14 @@ type StoryPropsType = {
 
 export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
 
+  const linkToStoryInfo = `/story/${story.id}`
   return story && story.url ? (
     <>
-      <h4><NavLink to={`/story/${story.id}`}>{index + 1}. {story.title}</NavLink></h4>
-      <p>By: {story.by} | Score: {story.score} | Data: {story.time}
-        {story.kids?.length && ` | ${story.kids?.length} comments`}</p>
+      <h4><NavLink to={linkToStoryInfo}>{index + 1}. {story.title}</NavLink></h4>
+      <p>By: {story.by} | Score: {story.score} | Data: {story.time} |
+        {story.kids?.length &&
+        <NavLink to={linkToStoryInfo}>{` ${story.kids.length} comments`}</NavLink>
+        }</p>
     </>
   ) : null;
 };

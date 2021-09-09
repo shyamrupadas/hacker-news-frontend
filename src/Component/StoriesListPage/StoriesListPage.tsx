@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Story } from './Story';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { fetchStories } from '../../store/action-creators/story';
+import { fetchStories } from '../../store/action-creators/storyAC';
 import { StoryType } from '../../types/types';
 import { Button } from 'antd';
 
