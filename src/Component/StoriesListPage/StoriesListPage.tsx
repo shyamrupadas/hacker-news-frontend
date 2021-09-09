@@ -19,10 +19,10 @@ export const StoriesListPage = () => {
 
   if (error) return <h1>{error}</h1>
 
-  return <>
+  return <div className='content'>
     <h1>Hacker News</h1>
     <Button onClick={() => dispatch(updateStories())}>Обновить</Button>
     {loading && <h1>Загрузка</h1>}
     {stories.map((story: StoryType, index: number) => <Story key={story.id} story={story} index={index} />)}
-  </>
+  </div>
 };

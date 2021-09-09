@@ -6,7 +6,7 @@ import { Layout } from 'antd';
 
 export const App = () => {
   return (
-    <Layout>
+    <Layout >
       <AppRouter />
     </Layout>
   )

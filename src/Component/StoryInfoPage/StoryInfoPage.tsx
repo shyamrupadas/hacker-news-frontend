@@ -23,7 +23,7 @@ export const StoryInfoPage = ({ match }: any) => {
   if (error) return <h1>{error}</h1>
 
   return (
-    <>
+    <div className='content'>
       <NavLink to='/'>К списку новостей</NavLink>
       <h1>{story.title}</h1>
       <Button>Обновить</Button>
@@ -35,6 +35,6 @@ export const StoryInfoPage = ({ match }: any) => {
         {story.kids?.length && ` | ${story.kids?.length} comments`}
       </p>
       {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}
-    </>
+    </div>
   )
 };

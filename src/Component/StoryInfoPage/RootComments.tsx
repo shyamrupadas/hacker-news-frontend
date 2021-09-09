@@ -16,7 +16,7 @@ export const RootComments: React.FC<CommentProps> = ({kid}) => {
     getComment(kid).then(data => data && setComment(data));
   }, [kid]);
 
-  return <>
+  return <div className='Comment'>
     <p>
       {comment.by} | {comment.time}
       {comment.kids?.length && ` | ${comment.kids?.length} comments`}
@@ -24,5 +24,5 @@ export const RootComments: React.FC<CommentProps> = ({kid}) => {
     {comment.text && <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
 
     {showComment && comment.kids && comment.kids.map((kid: number) =><Comment key={comment.id} kid={kid}/>)}
-  </>
+  </div>
 }
