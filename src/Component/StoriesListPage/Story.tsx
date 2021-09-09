@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryType } from '../types/types';
+import { StoryType } from '../../types/types';
 import { NavLink } from 'react-router-dom';
 
 type StoryPropsType = {

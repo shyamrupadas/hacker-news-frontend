@@ -1,6 +1,6 @@
 import React from 'react';
-import { StoriesList } from '../Component/StoriesList';
-import { StoryInfo } from '../Component/StoryInfo';
+import { StoriesListPage } from '../Component/StoriesListPage/StoriesListPage';
+import { StoryInfoPage } from '../Component/StoryInfoPage/StoryInfoPage';
 
 export type Route = {
   path: string
@@ -9,6 +9,6 @@ export type Route = {
 }
 
 export const routes: Route[] = [
-  {path: '/', exact: true, component: StoriesList},
-  {path: '/story/:id', exact: false, component: StoryInfo}
+  {path: '/', exact: true, component: StoriesListPage},
+  {path: '/story/:id', exact: false, component: StoryInfoPage}
 ];

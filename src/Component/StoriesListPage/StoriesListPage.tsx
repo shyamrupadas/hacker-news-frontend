@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Story } from './Story';
-import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { fetchStories } from '../store/action-creators/story';
-import { StoryType } from '../types/types';
+import { fetchStories } from '../../store/action-creators/story';
+import { StoryType } from '../../types/types';
 import { Button } from 'antd';
 
 
-export const StoriesList = () => {
+export const StoriesListPage = () => {
   const {stories, error, loading} = useTypedSelector(state => state.storyReducer);
   const dispatch = useDispatch();
 

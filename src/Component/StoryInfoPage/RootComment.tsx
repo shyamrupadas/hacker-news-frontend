@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getComment } from '../api/api';
-import { CommentType } from '../types/types';
+import { getComment } from '../../api/api';
+import { CommentType } from '../../types/types';
 import { Comment } from './Comment';
 
 type CommentProps = {
