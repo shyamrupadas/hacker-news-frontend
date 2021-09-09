@@ -13,9 +13,9 @@ export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
   return story && story.url ? (
     <>
       <h4><NavLink to={linkToStoryInfo}>{index + 1}. {story.title}</NavLink></h4>
-      <p>By: {story.by} | Score: {story.score} | Data: {story.time} |
+      <p>By: {story.by} | Score: {story.score} | Data: {story.time}
         {story.kids?.length &&
-        <NavLink to={linkToStoryInfo}>{` ${story.kids.length} comments`}</NavLink>
+        <NavLink to={linkToStoryInfo}>{` | ${story.kids.length} comments`}</NavLink>
         }</p>
     </>
   ) : null;
