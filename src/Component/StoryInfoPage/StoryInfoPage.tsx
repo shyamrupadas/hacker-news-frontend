@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { RootComments } from './RootComments';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { fetchStory } from '../../store/action-creators/storyAC';
+import { fetchStory, updateStory } from '../../store/action-creators/storyAC';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'antd';
+import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
@@ -15,6 +16,8 @@ export const StoryInfoPage = ({ match }: any) => {
   useEffect(() => {
     dispatch(fetchStory(storyId));
   }, [storyId]);
+
+  useRefreshPage(() => updateStory(storyId));
 
   if (loading) return <h1>Загрузка</h1>
   if (error) return <h1>{error}</h1>
@@ -34,4 +37,4 @@ export const StoryInfoPage = ({ match }: any) => {
       {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}
     </>
   )
-}
+};
