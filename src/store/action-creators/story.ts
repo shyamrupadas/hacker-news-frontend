@@ -24,3 +24,20 @@ export const fetchStories = () => {
     }
   }
 };
+
+export const fetchStory = (storyId: number) => {
+  return async (dispatch: Dispatch<StoryAction>) => {
+    try {
+      dispatch({ type: StoryActionEnum.FETCHING_STORIES });
+
+      const data = await getStory(storyId);
+      dispatch({type: StoryActionEnum.FETCH_STORY_SUCCESS, payload: data})
+    } catch (e) {
+      dispatch({
+        type: StoryActionEnum.FETCH_STORIES_ERROR,
+        payload: 'Ошибка загрузки новостей'
+      })
+    }
+
+  }
+};

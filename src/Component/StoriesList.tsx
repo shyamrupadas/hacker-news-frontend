@@ -4,6 +4,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { fetchStories } from '../store/action-creators/story';
 import { StoryType } from '../types/types';
+import { Button } from 'antd';
 
 
 export const StoriesList = () => {
@@ -15,12 +16,11 @@ export const StoriesList = () => {
   }, []);
 
   if (loading) return <h1>Загрузка</h1>
-
   if (error) return <h1>{error}</h1>
 
   return <>
-
     <h1>Hacker News</h1>
+    <Button onClick={() => dispatch(fetchStories())}>Обновить</Button>
     {stories.map((story: StoryType, index: number) => <Story key={story.id} story={story} index={index} />)}
   </>
 };
