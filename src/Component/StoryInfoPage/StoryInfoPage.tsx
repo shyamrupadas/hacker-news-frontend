@@ -38,7 +38,7 @@ export const StoryInfoPage = ({ match }: any) => {
 
       </p>
 
-      <p className='commentHeader'>
+      <div className='mainCommentHeader'>
         {story.score} points by {story.by}
         <Divider type='vertical' style={{ borderColor: '#828282' }} />
         {formatDistanceToNow(new Date(story.time * 1000))} ago
@@ -47,7 +47,7 @@ export const StoryInfoPage = ({ match }: any) => {
          <Divider type='vertical' style={{ borderColor: '#828282' }} />
         {story.kids?.length} comments
          </span>}
-      </p>
+      </div>
       {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}
 
     </div>

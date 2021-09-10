@@ -28,6 +28,6 @@ export const StoriesListPage = () => {
       onClick={() => dispatch(fetchStories())}>
       Refresh
     </Button>
-    {stories.filter(el => el !== null).map((story: StoryType, index: number) => <Story key={story.id} story={story} index={index} />)}
+    {stories.map((story: StoryType, index: number) => story && <Story key={story.id} story={story} index={index} />)}
   </div>
 };

@@ -37,6 +37,12 @@ code {
   font-size: 10pt;
 }
 
+.mainCommentHeader {
+  color: #828282;
+  font-size: 10pt;
+  margin-bottom: 10pt;
+}
+
 a :hover {
   text-decoration: underline;
 }

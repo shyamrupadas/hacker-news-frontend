@@ -15,7 +15,7 @@ export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
   return story && story.url && story.time ? (
     <>
       <h4><NavLink to={linkToStoryInfo}>{index + 1}. {story.title}</NavLink></h4>
-      <p className='commentHeader'>
+      <div className='mainCommentHeader'>
         {story.score} points by {story.by}
         <Divider type='vertical' style={{ borderColor: '#828282' }} />
         {formatDistanceToNow(new Date(story.time * 1000))} ago
@@ -26,7 +26,7 @@ export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
             {story.kids.length} comments
           </NavLink>
         </span>}
-      </p>
+      </div>
     </>
   ) : null;
 };
