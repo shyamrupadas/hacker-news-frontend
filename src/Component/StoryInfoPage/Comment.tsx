@@ -19,7 +19,7 @@ export const Comment: React.FC<CommentProps> = ({kid}) => {
 
 
   return comment.time ? <div className='Comment'>
-    <div className='pstyle'>
+    <div>
       {comment.by} | {formatDistanceToNow(new Date(comment.time * 1000))} ago
       {comment.kids?.length && ` | ${comment.kids?.length} comments`}
     </div>

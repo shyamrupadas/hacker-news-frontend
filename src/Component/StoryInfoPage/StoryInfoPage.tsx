@@ -20,7 +20,6 @@ export const StoryInfoPage = ({ match }: any) => {
 
   useRefreshPage(() => updateStory(storyId));
 
-  if (loading) return <h1>Загрузка</h1>
   if (error) return <h1>{error}</h1>
 
   return story.time ? (
@@ -30,10 +29,10 @@ export const StoryInfoPage = ({ match }: any) => {
       <p>
         {/* eslint-disable-next-line react/jsx-no-target-blank */}
         <a href={story.url} target={'_blank'}>
-          Читать в источнике
+          Read the original
         </a>
       </p>
-      <Button>Refresh</Button>
+      <Button loading={loading} size='small' onClick={() => dispatch(fetchStory(storyId))}>Refresh</Button>
       <p>By: {story.by} | Score: {story.score} | {formatDistanceToNow(new Date(story.time * 1000))} ago
         {story.kids?.length && ` | ${story.kids?.length} comments`}
       </p>
