@@ -25,7 +25,7 @@ export const Comment: React.FC<CommentProps> = ({kid}) => {
     </div>
     {comment.text && <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
 
-    {showComment && comment.kids && comment.kids.map((kid: number) =><Comment key={comment.id} kid={kid}/>)}
+    {showComment && comment.kids && comment.kids.map((kid: number) =><Comment key={kid} kid={kid}/>)}
   </div>
     : null;
 }
