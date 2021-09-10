@@ -2,6 +2,7 @@ import React from 'react';
 import { StoryType } from '../../types/types';
 import { NavLink } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns'
+import { Divider } from 'antd';
 
 type StoryPropsType = {
   story: StoryType
@@ -14,10 +15,18 @@ export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
   return story && story.url && story.time ? (
     <>
       <h4><NavLink to={linkToStoryInfo}>{index + 1}. {story.title}</NavLink></h4>
-      <p>By: {story.by} | Score: {story.score} | {formatDistanceToNow(new Date(story.time * 1000))} ago
+      <p className='commentHeader'>
+        {story.score} points by {story.by}
+        <Divider type='vertical' style={{ borderColor: '#828282' }} />
+        {formatDistanceToNow(new Date(story.time * 1000))} ago
         {story.kids?.length &&
-        <NavLink to={linkToStoryInfo}>{` | ${story.kids.length} comments`}</NavLink>
-        }</p>
+        <span>
+          <Divider type='vertical' style={{ borderColor: '#828282' }} />
+          <NavLink to={linkToStoryInfo}>
+            {story.kids.length} comments
+          </NavLink>
+        </span>}
+      </p>
     </>
   ) : null;
 };

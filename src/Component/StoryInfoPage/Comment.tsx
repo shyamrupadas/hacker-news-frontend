@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { getComment } from '../../api/api';
 import { CommentType } from '../../types/types';
 import { formatDistanceToNow } from 'date-fns';
+import { Divider } from 'antd';
 
 type CommentProps = {
   kid: number
 }
 
-export const Comment: React.FC<CommentProps> = ({kid}) => {
+export const Comment: React.FC<CommentProps> = ({ kid }) => {
 
   const [comment, setComment] = useState<CommentType>({});
   const [showComment, setShowComment] = useState<boolean>(false)
@@ -17,15 +18,30 @@ export const Comment: React.FC<CommentProps> = ({kid}) => {
     getComment(kid).then(data => data && setComment(data));
   }, [kid]);
 
+  if (comment.deleted) return null;
 
   return comment.time ? <div className='Comment'>
-    <div>
-      {comment.by} | {formatDistanceToNow(new Date(comment.time * 1000))} ago
-      {comment.kids?.length && ` | ${comment.kids?.length} comments`}
-    </div>
-    {comment.text && <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
+      <div className='commentHeader'>
+        {comment.by}
+        <Divider type='vertical' style={{ borderColor: '#828282' }} />
+        {formatDistanceToNow(new Date(comment.time * 1000))} ago
+        <span onClick={() => setShowComment(!showComment)}>
+        {comment.kids?.length && !showComment &&
+        <span>
+            <Divider type='vertical' style={{ borderColor: '#828282' }} />
+            [{comment.kids?.length} more]
+        </span>}
+          {comment.kids?.length && showComment &&
+          <span>
+          <Divider type='vertical' style={{ borderColor: '#828282' }} />
+            [-]
+        </span>}
+          </span>
+      </div>
+      {comment.text &&
+      <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
 
-    {showComment && comment.kids && comment.kids.map((kid: number) =><Comment key={kid} kid={kid}/>)}
-  </div>
+      {showComment && comment.kids && comment.kids.map((kid: number) => <Comment key={kid} kid={kid} />)}
+    </div>
     : null;
 }
