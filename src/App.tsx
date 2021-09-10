@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import 'antd/dist/antd.css';
 import AppRouter from './Component/AppRouter';
 
