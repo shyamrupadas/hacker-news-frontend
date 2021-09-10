@@ -25,7 +25,7 @@ export const StoryInfoPage = ({ match }: any) => {
 
   return story.time ? (
     <div className='container'>
-      <NavLink to='/'>К списку новостей</NavLink>
+      <NavLink to='/'>Back to news list</NavLink>
       <h1>{story.title}</h1>
       <p>
         {/* eslint-disable-next-line react/jsx-no-target-blank */}
@@ -33,7 +33,7 @@ export const StoryInfoPage = ({ match }: any) => {
           Читать в источнике
         </a>
       </p>
-      <Button>Обновить</Button>
+      <Button>Refresh</Button>
       <p>By: {story.by} | Score: {story.score} | {formatDistanceToNow(new Date(story.time * 1000))} ago
         {story.kids?.length && ` | ${story.kids?.length} comments`}
       </p>

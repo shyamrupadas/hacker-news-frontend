@@ -19,7 +19,7 @@ export const fetchStories = () => {
     } catch (e) {
       dispatch({
         type: StoryActionEnum.FETCH_STORIES_ERROR,
-        payload: 'Ошибка загрузки новостей'
+        payload: 'Error loading'
       })
     }
   }
@@ -40,7 +40,7 @@ export const updateStories = () => {
     } catch (e) {
       dispatch({
         type: StoryActionEnum.FETCH_STORIES_ERROR,
-        payload: 'Ошибка загрузки новостей'
+        payload: 'Error loading'
       })
     }
   }
@@ -55,7 +55,7 @@ export const fetchStory = (storyId: number) => {
     } catch (e) {
       dispatch({
         type: StoryActionEnum.FETCH_STORIES_ERROR,
-        payload: 'Ошибка загрузки новостей'
+        payload: 'Error loading'
       })
     }
 
@@ -70,7 +70,7 @@ export const updateStory = (storyId: number) => {
     } catch (e) {
       dispatch({
         type: StoryActionEnum.FETCH_STORIES_ERROR,
-        payload: 'Ошибка загрузки новостей'
+        payload: 'Error loading'
       })
     }
 

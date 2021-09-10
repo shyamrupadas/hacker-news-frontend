@@ -21,8 +21,8 @@ export const StoriesListPage = () => {
 
   return <div className='container'>
     <h1>Hacker News</h1>
-    <Button onClick={() => dispatch(updateStories())}>Обновить</Button>
-    {loading && <h1>Загрузка</h1>}
+    <Button onClick={() => dispatch(updateStories())}>Refresh</Button>
+    {loading && <h1>Loading</h1>}
     {stories.map((story: StoryType, index: number) => <Story key={story.id} story={story} index={index} />)}
   </div>
 };
