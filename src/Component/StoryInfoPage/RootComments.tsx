@@ -33,20 +33,25 @@ export const RootComments: React.FC<CommentProps> = ({ kid }) => {
         {comment.kids?.length && !showComment &&
         <span>
           <Divider type='vertical' style={{ borderColor: '#828282' }} />
-          [{comment.kids?.length} more]
+          <span className='pointer'>
+            [{comment.kids?.length} more]
+          </span>
         </span>
         }
           {comment.kids?.length && showComment &&
           <span>
           <Divider type='vertical' style={{ borderColor: '#828282' }} />
-            [-]
+            <span className='pointer'>
+              [-]
+            </span>
         </span>
           }
       </span>
       </div>
       {comment.text &&
-      <p onClick={() => setShowComment(!showComment)} dangerouslySetInnerHTML={{ __html: comment.text }} />}
-
+      <p className={ comment.kids && 'pointer'}
+         onClick={() => setShowComment(!showComment)}
+         dangerouslySetInnerHTML={{ __html: comment.text }} />}
       {showComment && comment.kids && comment.kids.map((kid: number) => <Comment key={kid} kid={kid} />)}
     </div>
     : null;

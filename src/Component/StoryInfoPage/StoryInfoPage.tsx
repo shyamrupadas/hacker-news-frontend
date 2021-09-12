@@ -34,10 +34,6 @@ export const StoryInfoPage = ({ match }: any) => {
       <Button loading={loading} size='small' onClick={() => dispatch(fetchStory(storyId))}>Refresh</Button>
 
       <h1>{story.title}</h1>
-      <p>
-
-      </p>
-
       <div className='mainCommentHeader'>
         {story.score} points by {story.by}
         <Divider type='vertical' style={{ borderColor: '#828282' }} />
@@ -45,7 +41,7 @@ export const StoryInfoPage = ({ match }: any) => {
         {story.kids?.length &&
        <span>
          <Divider type='vertical' style={{ borderColor: '#828282' }} />
-        {story.kids?.length} comments
+        {story.descendants} comments
          </span>}
       </div>
       {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}

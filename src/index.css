@@ -43,10 +43,10 @@ code {
   margin-bottom: 10pt;
 }
 
-a :hover {
-  text-decoration: underline;
-}
-
 .mainButton {
   margin-bottom: 10px;
+}
+
+.pointer {
+  cursor: pointer;
 }
