@@ -24,7 +24,9 @@ export const StoryInfoPage = ({ match }: any) => {
 
   return story.time ? (
     <div className='container'>
-      <NavLink to='/'>Back to news list</NavLink>
+      <NavLink to='/'>
+        Back to news list
+      </NavLink>
       <Divider type='vertical' style={{ borderColor: '#828282' }} />
       {/* eslint-disable-next-line react/jsx-no-target-blank */}
       <a href={story.url} target={'_blank'}>
@@ -32,7 +34,6 @@ export const StoryInfoPage = ({ match }: any) => {
       </a>
       <Divider type='vertical' style={{ borderColor: '#828282' }} />
       <Button loading={loading} size='small' onClick={() => dispatch(fetchStory(storyId))}>Refresh</Button>
-
       <h1>{story.title}</h1>
       <div className='mainCommentHeader'>
         {story.score} points by {story.by}
@@ -44,8 +45,9 @@ export const StoryInfoPage = ({ match }: any) => {
         {story.descendants} comments
          </span>}
       </div>
-      {story.kids?.map((kid: number) => <RootComments key={kid} kid={kid} />)}
-
+      {story.kids?.map((kid: number) =>
+        <RootComments key={kid} kid={kid} />
+      )}
     </div>
   ) : null;
 };

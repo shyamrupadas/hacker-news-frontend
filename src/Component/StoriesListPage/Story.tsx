@@ -14,7 +14,11 @@ export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
 
   return story && story.url && story.time ? (
     <>
-      <h4><NavLink to={linkToStoryInfo}>{index + 1}. {story.title}</NavLink></h4>
+      <h4>
+        <NavLink to={linkToStoryInfo}>
+          {index + 1}. {story.title}
+        </NavLink>
+      </h4>
       <div className='mainCommentHeader'>
         {story.score} points by {story.by}
         <Divider type='vertical' style={{ borderColor: '#828282' }} />
