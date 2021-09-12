@@ -23,7 +23,7 @@ export const Story: React.FC<StoryPropsType> = ({ story, index }) => {
         <span>
           <Divider type='vertical' style={{ borderColor: '#828282' }} />
           <NavLink to={linkToStoryInfo}>
-            {story.kids.length} comments
+            {story.descendants} comments
           </NavLink>
         </span>}
       </div>
