@@ -3,10 +3,10 @@ import { RootComments } from './RootComments';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { fetchStory, updateStory } from '../../store/action-creators/storyAC';
-import { NavLink } from 'react-router-dom';
-import { Button, Divider } from 'antd';
+import { Divider } from 'antd';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
 import { formatDistanceToNow } from 'date-fns';
+import { Menu } from './Menu';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
@@ -24,16 +24,7 @@ export const StoryInfoPage = ({ match }: any) => {
 
   return story.time ? (
     <div className='container'>
-      <NavLink to='/'>
-        Back to news list
-      </NavLink>
-      <Divider type='vertical' style={{ borderColor: '#828282' }} />
-      {/* eslint-disable-next-line react/jsx-no-target-blank */}
-      <a href={story.url} target={'_blank'}>
-        Read the original
-      </a>
-      <Divider type='vertical' style={{ borderColor: '#828282' }} />
-      <Button loading={loading} size='small' onClick={() => dispatch(fetchStory(storyId))}>Refresh</Button>
+      <Menu storyId={storyId} story={story} loading={loading}  />
       <h1>{story.title}</h1>
       <div className='mainCommentHeader'>
         {story.score} points by {story.by}
