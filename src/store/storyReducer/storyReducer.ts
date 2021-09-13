@@ -2,7 +2,17 @@ import { StoryAction, StoryActionEnum, storyState } from './types';
 
 const initialState: storyState = {
   stories: [],
-  story: {},
+  story: {
+    by: '',
+    descendants: undefined,
+    id: undefined,
+    kids: [],
+    score: undefined,
+    time: undefined,
+    title: '',
+    type: '',
+    url: ''
+  },
   loading: false,
   error: null
 };

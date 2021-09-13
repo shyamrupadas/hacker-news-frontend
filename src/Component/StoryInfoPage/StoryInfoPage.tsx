@@ -3,10 +3,9 @@ import { RootComments } from './RootComments';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { fetchStory, updateStory } from '../../store/action-creators/storyAC';
-import { Divider } from 'antd';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
-import { formatDistanceToNow } from 'date-fns';
 import { Menu } from './Menu';
+import { StoryAttributes } from '../UI/StoryAttributes';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
@@ -24,18 +23,9 @@ export const StoryInfoPage = ({ match }: any) => {
 
   return story.time ? (
     <div className='container'>
-      <Menu storyId={storyId} story={story} loading={loading}  />
+      <Menu storyId={storyId} story={story} loading={loading} />
       <h1>{story.title}</h1>
-      <div className='mainCommentHeader'>
-        {story.score} points by {story.by}
-        <Divider type='vertical' style={{ borderColor: '#828282' }} />
-        {formatDistanceToNow(new Date(story.time * 1000))} ago
-        {story.kids?.length &&
-       <span>
-         <Divider type='vertical' style={{ borderColor: '#828282' }} />
-        {story.descendants} comments
-         </span>}
-      </div>
+      <StoryAttributes story={story} />
       {story.kids?.map((kid: number) =>
         <RootComments key={kid} kid={kid} />
       )}
