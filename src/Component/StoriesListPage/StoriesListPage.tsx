@@ -4,11 +4,11 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { fetchStories, updateStories } from '../../store/action-creators/storyAC';
 import { StoryType } from '../../types/types';
-import { Button } from 'antd';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
+import { RefreshButton } from '../UI/button/RefreshButton';
 
 export const StoriesListPage = () => {
-  const {stories, error, loading} = useTypedSelector(state => state.storyReducer);
+  const { stories, error, loading } = useTypedSelector(state => state.storyReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,13 +21,7 @@ export const StoriesListPage = () => {
 
   return <div className='container'>
     <h1>Hacker News</h1>
-    <Button
-      className='mainButton'
-      loading={loading}
-      size='small'
-      onClick={() => dispatch(fetchStories())}>
-      Refresh
-    </Button>
+    <RefreshButton loading={loading} dispatch={dispatch} mb />
     {stories.map((story: StoryType, index: number) => story &&
       <Story key={story.id} story={story} index={index} />
     )}
