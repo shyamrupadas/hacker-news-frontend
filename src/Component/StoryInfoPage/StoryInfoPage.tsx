@@ -9,7 +9,7 @@ import { StoryAttributes } from '../UI/StoryAttributes';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
-  const { story, error, loading } = useTypedSelector(state => state.storyReducer);
+  const { story, error, loading } = useTypedSelector(state => state.toolkit);
 
   const dispatch = useDispatch();
 
