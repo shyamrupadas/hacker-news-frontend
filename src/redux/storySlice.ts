@@ -23,7 +23,6 @@ const initialState: storyState = {
 export const fetchStories = createAsyncThunk(
   'story/fetchStories',
   async (_, { rejectWithValue }) => {
-
     try {
       const data = await getStoriesIds();
 
@@ -36,7 +35,24 @@ export const fetchStories = createAsyncThunk(
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
+  }
+);
 
+export const updateStories = createAsyncThunk(
+  'story/updateStories',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await getStoriesIds();
+
+      const promises = data
+        .slice(0, 100)
+        .map((storyId: number) => getStory(storyId));
+
+      const result: StoryType[] = await Promise.all(promises);
+      return result;
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
   }
 )
 
@@ -73,7 +89,15 @@ export const storySlice = createSlice({
       state.loading = false;
       // @ts-ignore
       state.error = action.payload;
-    })
+    });
+    builder.addCase(updateStories.rejected, (state, action) => {
+      state.loading = false;
+      // @ts-ignore
+      state.error = action.payload;
+      }
+
+    );
+
   },
 });
 

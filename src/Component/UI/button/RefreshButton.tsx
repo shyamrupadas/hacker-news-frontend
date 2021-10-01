@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { fetchStories } from '../../../store/action-creators/storyAC';
+import { fetchStories } from '../../../redux/storySlice';
 import React from 'react';
 import { Dispatch } from 'redux';
 import s from './RefreshButton.module.css'

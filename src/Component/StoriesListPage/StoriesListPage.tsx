@@ -4,8 +4,8 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { StoryType } from '../../types/types';
 import { RefreshButton } from '../UI/button/RefreshButton';
-import { $CombinedState } from 'redux';
-import counterReducer, { fetchStories } from '../../redux/storySlice';
+import { fetchStories, updateStories } from '../../redux/storySlice';
+import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 export const StoriesListPage = () => {
   const { stories, error, loading } = useTypedSelector(state => state.toolkit);
@@ -15,7 +15,7 @@ export const StoriesListPage = () => {
     dispatch(fetchStories());
   }, []);
 
-  // useRefreshPage(updateStories);
+  useRefreshPage(updateStories);
 
   if (error) return <h1>{error}</h1>
 
