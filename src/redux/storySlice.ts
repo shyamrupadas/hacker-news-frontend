@@ -54,6 +54,17 @@ export const updateStories = createAsyncThunk(
       return rejectWithValue(error.message);
     }
   }
+);
+
+export const fetchStory = createAsyncThunk(
+  'story/fetchStory',
+  async (id: number, { rejectWithValue }) => {
+    try {
+      return await getStory(id);
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
 )
 
 export const storySlice = createSlice({
@@ -91,13 +102,19 @@ export const storySlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(updateStories.rejected, (state, action) => {
-      state.loading = false;
-      // @ts-ignore
-      state.error = action.payload;
+        state.loading = false;
+        // @ts-ignore
+        state.error = action.payload;
       }
-
     );
-
+    builder.addCase(fetchStory.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchStory.fulfilled, (state, action) => {
+      state.loading = false;
+      state.story = action.payload;
+    });
   },
 });
 

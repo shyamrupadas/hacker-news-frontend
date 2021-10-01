@@ -12,6 +12,7 @@ type RefreshButtonType = {
 
 export const RefreshButton: React.FC<RefreshButtonType> = ({ loading, dispatch, mb }) => {
   return (
+    // Todo прокидывать коллбэк для обновления пропсами
     <Button
       className={mb && s.mainButton}
       loading={loading}

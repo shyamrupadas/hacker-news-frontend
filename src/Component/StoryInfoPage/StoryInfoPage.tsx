@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { RootComments } from './RootComments';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { fetchStory, updateStory } from '../../store/action-creators/storyAC';
-import { useRefreshPage } from '../../hooks/useRefreshPage';
+import { fetchStory } from '../../redux/storySlice';
 import { Menu } from './Menu';
 import { StoryAttributes } from '../UI/StoryAttributes';
 
@@ -17,7 +16,7 @@ export const StoryInfoPage = ({ match }: any) => {
     dispatch(fetchStory(storyId));
   }, [storyId]);
 
-  useRefreshPage(() => updateStory(storyId));
+  // useRefreshPage(() => updateStory(storyId));
 
   if (error) return <h1>{error}</h1>
 
