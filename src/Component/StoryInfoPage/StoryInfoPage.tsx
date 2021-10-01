@@ -23,7 +23,7 @@ export const StoryInfoPage = ({ match }: any) => {
 
   return story.time ? (
     <div className='container'>
-      <Menu storyId={storyId} story={story} loading={loading} />
+      <Menu storyId={storyId} story={story} loading={loading} refreshCallback={() => fetchStory(storyId)}/>
       <h1>{story.title}</h1>
       <StoryAttributes story={story} />
       {story.kids?.map((kid: number) =>

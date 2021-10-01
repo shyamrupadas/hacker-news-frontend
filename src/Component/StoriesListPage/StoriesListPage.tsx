@@ -21,7 +21,7 @@ export const StoriesListPage = () => {
 
   return <div className='container'>
     <h1>Hacker News</h1>
-    <RefreshButton loading={loading} dispatch={dispatch} mb />
+    <RefreshButton loading={loading} dispatch={dispatch} mb refreshCallback={fetchStories} />
     {stories.map((story: StoryType, index: number) => story &&
       <Story key={story.id} story={story} index={index} />
     )}

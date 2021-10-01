@@ -9,9 +9,10 @@ type MenuType = {
   story: StoryType
   storyId: number
   loading: boolean
+  refreshCallback: (id?: number) => void
 };
 
-export const Menu: React.FC<MenuType> = ({story, storyId, loading}) => {
+export const Menu: React.FC<MenuType> = ({ story, loading, refreshCallback }) => {
   const dispatch = useDispatch();
 
   return (
@@ -25,7 +26,7 @@ export const Menu: React.FC<MenuType> = ({story, storyId, loading}) => {
         Read the original
       </a>
       <Divider type='vertical' style={{ borderColor: '#828282' }} />
-      <RefreshButton loading={loading} dispatch={dispatch} />
+      <RefreshButton loading={loading} dispatch={dispatch} refreshCallback={refreshCallback} />
     </>
   )
 }
