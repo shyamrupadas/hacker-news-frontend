@@ -65,6 +65,17 @@ export const fetchStory = createAsyncThunk(
       return rejectWithValue(error.message);
     }
   }
+);
+
+export const updateStory = createAsyncThunk(
+  'story/updateStory',
+  async (id: number, { rejectWithValue }) => {
+    try {
+      return await getStory(id);
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
 )
 
 export const storySlice = createSlice({
