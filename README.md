@@ -1,21 +1,28 @@
 # Hacker news clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Тестовое задание для Avito
+
+### Демо: [hacker-news-clone-test-project.netlify.app](https://hacker-news-clone-test-project.netlify.app/)
+
+### Используемые технологии:
+
+Typescript, React.js, Redux Toolkit, Redux Thunk, Custom Hooks.
+
+## Функционал:
+
+Отобразить последние 100 новостей портала [Hacker News](https://news.ycombinator.com/).
+
+При клике на статью открывать дерево комментариев.
+Комментарии верхнего уровня развернуты, остальные свернуты.
+При клике по комментарию разворачиваются вложенные комментарии.
+
+Каждую минуту автоматически обновляется список новостей / комментариев и пользователь может обновить их принудительно.
 
 ## Available Scripts
 
-
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
