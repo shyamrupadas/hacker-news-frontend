@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getStoriesIds, getStory } from '../api/api';
-import { StoryType } from '../types/types';
-import { storyState } from '../store/storyReducer/types';
+import { storyState, StoryType } from '../types/types';
+
 
 const initialState: storyState = {
   stories: [],

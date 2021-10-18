@@ -1,3 +1,10 @@
+export type storyState = {
+  stories: StoryType[]
+  story: StoryType
+  loading: boolean
+  error: null | string
+};
+
 export type StoryType = {
   by?: string
   descendants?: number
