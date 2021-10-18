@@ -15,7 +15,7 @@ export const StoryInfoPage = ({ match }: any) => {
 
   useEffect(() => {
     dispatch(fetchStory(storyId));
-  }, [storyId]);
+  }, [storyId, dispatch]);
 
   useRefreshPage(() => updateStory(storyId));
 

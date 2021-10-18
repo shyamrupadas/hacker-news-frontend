@@ -10,5 +10,5 @@ export const useRefreshPage = (callback: () => void) => {
       dispatch(callback());
     },60000);
     return () => clearInterval(refreshPage);
-  }, []);
+  }, [callback, dispatch]);
 };

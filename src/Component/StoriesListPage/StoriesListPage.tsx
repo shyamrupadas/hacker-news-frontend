@@ -13,7 +13,7 @@ export const StoriesListPage = () => {
 
   useEffect(() => {
     dispatch(fetchStories());
-  }, []);
+  }, [dispatch]);
 
   useRefreshPage(updateStories);
 
