@@ -8,7 +8,7 @@ import { fetchStories, updateStories } from '../../redux/storySlice';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 export const StoriesListPage = () => {
-  const { stories, error, loading } = useTypedSelector(state => state.toolkit);
+  const { stories, error, loading } = useTypedSelector(state => state.storySlice);
   const dispatch = useDispatch();
 
   useEffect(() => {

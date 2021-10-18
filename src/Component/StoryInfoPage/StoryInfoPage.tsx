@@ -9,7 +9,7 @@ import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 export const StoryInfoPage = ({ match }: any) => {
   const storyId: number | null = +match.params.id;
-  const { story, error, loading } = useTypedSelector(state => state.toolkit);
+  const { story, error, loading } = useTypedSelector(state => state.storySlice);
 
   const dispatch = useDispatch();
 

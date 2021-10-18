@@ -1,9 +1,8 @@
-import { combineReducers } from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './storySlice'
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import storySlice from './storySlice'
 
 const rootReducer = combineReducers({
-  toolkit: counterReducer
+  storySlice: storySlice
 });
 
 export const store = configureStore({
