@@ -23,6 +23,10 @@ Typescript, React.js, Redux Toolkit, Redux Thunk, Custom Hooks.
 
 https://github.com/HackerNews/API
 
+## Todo
+* Добавить header в верстку.
+* Повысить контрастность текста, заменив фон.
+
 ## Available Scripts
 
 ### `npm start`
