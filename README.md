@@ -1,10 +1,10 @@
 # Hacker news clone
 
-### Тестовое задание для Avito
+## Тестовое задание для Avito
 
 Демо: https://hacker-news-clone-test-project.netlify.app/
 
-### Используемые технологии:
+## Используемые технологии:
 
 Typescript, React.js, Redux Toolkit, Redux Thunk, Custom Hooks.
 
